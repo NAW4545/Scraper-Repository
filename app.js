@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+var slosRouter = require('./routes/slos');
+var convosRouter = require('./routes/convos');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -20,11 +22,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/slos', slosRouter);
+app.use('/convos', convosRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
+});
+
+// Get the original path, before using router
+app.use(function (req, res, next) {
+  req.originalPath = req.path;
+  next();
 });
 
 // error handler
