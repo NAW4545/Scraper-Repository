@@ -14,5 +14,15 @@ router.get('/', asyncHandler(async (req, res, next) => {
   });
 }));
 
+/*GET SLO Viewer Page */
+router.get('/sloViewer', asyncHandler(async (req, res, next) => {
+  res.render('viewer', {
+    title: 'SLO Viewer',
+    metaDescription: 'SLO Manager',
+    menuPath: req.originalPath,
+  });
+}));
+
+
 
 module.exports = router;
