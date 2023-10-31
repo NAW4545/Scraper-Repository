@@ -4,10 +4,10 @@ var path = require('path');
 const asyncHandler = require('express-async-handler');
 const Models = require('../sequelize');
 
-/* GET /slos listing. */
+/* GET /plos listing. */
 router.get('/', asyncHandler(async (req, res, next) => {
-  res.render('slos', {
-    title: 'SLOs',
+  res.render('plos', {
+    title: 'PLOs',
     metaDescription: 'SLO Manager',
     menuPath: req.originalPath,
   });
