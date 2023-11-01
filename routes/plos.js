@@ -13,4 +13,17 @@ router.get('/', asyncHandler(async (req, res, next) => {
   });
 }));
 
+/* /plos/dept */
+
+/* /plos/semester */
+
+/* /plos/change */
+router.get('/change', asyncHandler(async (req, res, next) => {
+  res.render('change', {
+    title: 'Submit PLO Changes',
+    metaDescription: 'SLO Manager',
+    menuPath: req.originalPath,
+  });
+}));
+
 module.exports = router;
