@@ -6,32 +6,45 @@ const departmentsModel = require('./models/departments');
 const programsModel = require('./models/programs');
 
 //Access DataBase - 
-//WARNING - THIS CONFIGURATION WILL CONNECT TO THE MAIN DATABASE. TRY TO 
-//CONNECT TO YOUR LOCAL DB IF YOU WILL BE MAKING CHANGES/TESTING OVERWRITES.
+//WARNING - YOU WILL NEED TO CHANGE THIS TO YOUR LOCAL INFO EVERY TIME YOU PULL. 
+//COPYING AND PASTING RECOMMENDED 
 const sequelize = new Sequelize({
-  host: 'csci36db.clmdetk42d9h.us-east-1.rds.amazonaws.com',
-  username: 'admin',
-  password: 'BigBadmin17',
+  hostname: '127.0.0.1',
+  username: 'brody',
+  password: 'Vault111',
   port: '3306',
-  database: 'PLO',
   dialect: 'mysql',
   // A pool is good for multiple connections
-  // pool: {
-  //   max: 10,
-  //   min: 0,
-  //   acquire: 30000,
-  //   idle: 10000
-  // },
+  pool: {
+    max: 10,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  },
   // To remove deprecated warning
 //   operatorsAliases: false,
   logging: false
 });
 
 //Generate and associate table objects 
-//WIP THIS NEEDS DOING FOR ALL MODELS/TABLES
 const departments = departmentsModel(sequelize, Sequelize);
 const programs = programsModel(sequelize, Sequelize);
+const plos = plosModel(sequelize, Sequelize);
+const plo_changes = plo_changesModel(sequelize, Sequelize);
+const discussions = discussionsModel(sequelize, Sequelize);
+const courses = coursesModel(sequelize, Sequelize);
+const course_slos = course_slosModel(sequelize, Sequelize);
+const prog_courses = prog_coursesModel(sequelize, Sequelize);
+const plo_discussions = plo_discussionsModel(sequelize, Sequelize);
+
 programs.associate(departments);
+plos.associate(programs);
+plo_changes.associate(plos);
+plos.associate(programs);
+plo_changes.associate(plos);
+course_slos.associate(courses);
+
+
 sequelize.sync()
 .then(() => {
   console.log('Database & Tables Created Successfully!');
@@ -39,8 +52,14 @@ sequelize.sync()
 
 
 //Exports each table as module
-//WIP THIS NEEDS DOING FOR ALL MODELS/TABLES
 module.exports = {
   departments,
   programs,
+  plos,
+  plo_changes,
+  discussions,
+  courses,
+  course_slos,
+  prog_courses,
+  plo_discussions,
 };

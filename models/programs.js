@@ -2,19 +2,18 @@ module.exports = (sequelize, dataTypes) => {
     // Define our Departments Table Structure (Model)
     const programs = sequelize.define('programs', {
       // Our CategoryID, Types come from: https://sequelize.org/docs/v6/core-concepts/model-basics/#data-types
-      PROG_ID: {
+      prog_id: {
            type: dataTypes.INTEGER,
            primaryKey: true,
            autoIncrement: true
        },
-       PROG_NAME: {
+       prog_name: {
            type: dataTypes.STRING,
            allowNull: false
        },
-       DEPT_ID: {
+       dept_id: {
            type: dataTypes.INTEGER,
            allowNull: false
-           
        }
     });
     
@@ -22,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
     
     programs.associate = (departments) => {
         programs.belongsTo(departments, {
-            foreignKey: 'DEPT_ID',
+            foreignKey: 'dept_id',
             as: 'departments'
         });
     };
