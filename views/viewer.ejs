@@ -7,12 +7,20 @@
   <%- include('includes/pageHeader'); -%>
   
   <!-- Main Content Goes Here -->
-  <div id="main-container" class="flex flex-col justify-center my-10 mx-48 max-w-3xl min-w-[50%] text-center">
-    <h1 class="font-bold text-2xl py-3 text-left">SLO Viewer</h1>
-    <p class="py-2 text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <p class="py-2 text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est la.</p>
+ <div id="main-container" class="flex flex-col bg-neutral-700 rounded-3xl shadow-md p-16 justify-center text-center m-auto">
+  <h3 class="text-white text-4xl pb-10" style="font-family: 'Mate SC', serif;">Choose PLO or SLO</h3>
+
+  <div class="flex">
+    <div class="w-80 h-40 p-2 gap-2 bg-amber-400 shadow-md rounded-md text-neutral-600 basis-1/2 font-bold hover:bg-yellow-300 active:bg-amber-300 transition-all shadow-md cursor-pointer text-2xl m-2">
+      <h3 class="my-10"><a href="slos.html">SLO (Student Learning Outcomes)</a></h3>
+    </div>
+
+    <div class="w-80 h-40 p-2 flex flex-col gap-2 bg-amber-400 shadow-md rounded-lg text-gray-600 basis-1/2 font-bold hover-bg-yellow-300 active-bg-amber-300 transition-all shadow-md cursor-pointer text-2xl m-2">
+      <h3 class="my-10"><a href="plos.html">PLO (Program Learning Outcomes)</a></h3>
+    </div>
   </div>
-  
+</div>
+
   
 <%- include('includes/pageFooter'); -%>
 <%- include('includes/footerStuff'); -%>
