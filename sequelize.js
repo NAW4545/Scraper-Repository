@@ -4,6 +4,13 @@ const Sequelize = require('sequelize');
 //WIP THIS NEEDS DOING FOR ALL MODELS/TABLES
 const departmentsModel = require('./models/departments');
 const programsModel = require('./models/programs');
+const plosModel = require('.models/plos');
+const plo_changesModel = require('.models/plo_changes');
+const discussionsModel = require('.models/discussions');
+const coursesModel = require('.models/courses');
+const course_slosModel = require('.models/course_slos');
+const prog_coursesModel = require('.models/prog_courses');
+const plo_discussionsModel = require('.models/plo_discussions');
 
 //Access DataBase - 
 //WARNING - YOU WILL NEED TO CHANGE THIS TO YOUR LOCAL INFO EVERY TIME YOU PULL. 
