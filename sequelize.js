@@ -9,8 +9,7 @@ const plo_changesModel = require('./models/plo_changes');
 const discussionsModel = require('./models/discussions');
 const coursesModel = require('./models/courses');
 const course_slosModel = require('./models/course_slos');
-const prog_coursesModel = require('./models/prog_courses');
-const plo_discussionsModel = require('./models/plo_discussions');
+
 
 //Access DataBase - 
 //WARNING - YOU WILL NEED TO CHANGE THIS TO YOUR LOCAL INFO EVERY TIME YOU PULL. 
@@ -41,8 +40,7 @@ const plo_changes = plo_changesModel(sequelize, Sequelize);
 const discussions = discussionsModel(sequelize, Sequelize);
 const courses = coursesModel(sequelize, Sequelize);
 const course_slos = course_slosModel(sequelize, Sequelize);
-const prog_courses = prog_coursesModel(sequelize, Sequelize);
-const plo_discussions = plo_discussionsModel(sequelize, Sequelize);
+
 
 programs.associate(departments);
 plos.associate(programs);
@@ -50,6 +48,10 @@ plo_changes.associate(plos);
 plos.associate(programs);
 plo_changes.associate(plos);
 course_slos.associate(courses);
+programs.belongsToMany(courses, {through: prog_courses});
+courses.belongsToMany(programs, {through: prog_courses});
+plos.belongsToMany(discussions, {through: plo_discussions});
+discussions.belongsToMany(plos, {through: plo_discussions});
 
 
 sequelize.sync()
