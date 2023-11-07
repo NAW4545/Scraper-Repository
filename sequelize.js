@@ -45,13 +45,11 @@ const course_slos = course_slosModel(sequelize, Sequelize);
 programs.associate(departments);
 plos.associate(programs);
 plo_changes.associate(plos);
-plos.associate(programs);
-plo_changes.associate(plos);
 course_slos.associate(courses);
-programs.belongsToMany(courses, {through: prog_courses});
-courses.belongsToMany(programs, {through: prog_courses});
-plos.belongsToMany(discussions, {through: plo_discussions});
-discussions.belongsToMany(plos, {through: plo_discussions});
+programs.belongsToMany(courses, {through: 'prog_courses'});
+courses.belongsToMany(programs, {through: 'prog_courses'});
+plos.belongsToMany(discussions, {through: 'plo_discussions'});
+discussions.belongsToMany(plos, {through: 'plo_discussions'});
 
 
 sequelize.sync()
@@ -69,6 +67,4 @@ module.exports = {
   discussions,
   courses,
   course_slos,
-  prog_courses,
-  plo_discussions,
 };
