@@ -15,9 +15,10 @@ const course_slosModel = require('./models/course_slos');
 //WARNING - YOU WILL NEED TO CHANGE THIS TO YOUR LOCAL INFO EVERY TIME YOU PULL. 
 //COPYING AND PASTING RECOMMENDED 
 const sequelize = new Sequelize({
-  hostname: '127.0.0.1',
-  username: 'brody',
-  password: 'Vault111',
+  host: 'csci36db.clmdetk42d9h.us-east-1.rds.amazonaws.com',
+  database: 'PLO',
+  username: 'noah',  
+  password: 'password',  
   port: '3306',
   dialect: 'mysql',
   // A pool is good for multiple connections
