@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('../includes/headerStuff'); -%>
+</head>
+<body>
+  <%- include('../includes/pageHeader'); -%>
+  
+  
+  <!-- Table needs formatting, but works, Departments list generated from DB -->
+ <div class="container">
+   <div class="row">
+     <% for(let department of departments) { %>
+      <div class="tableoptions">
+        <a href="<%=department.dept_id%>"><%=department.dept_name.substring(0, 20)%></a>
+      </div>
+     <% } %>
+   </div>
+   
+ </div> <!--/container -->
+  
+  
+  <%- include('../includes/pageFooter'); -%>
+  <%- include('../includes/footerStuff'); -%>
+</body>
+</html>
