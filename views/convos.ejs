@@ -6,16 +6,16 @@
 <body>
   <%- include('includes/pageHeader'); -%>
   
-  <div id="main-container" class="flex flex-col bg-neutral-700 rounded-3xl shadow-md p-16 justify-center text-center m-auto text-2xl">
+  <div id="main-container" class="flex flex-col ml-24 mr-24 mt-20 py-12 bg-neutral-700 rounded-3xl shadow-md p-8 justify-center text-center m-auto text-2xl">
   <h3 class="text-white text-3xl pb-10" style="font-family: 'Mate SC', serif;">Filter your selection</h3>
 
   <div class="dropdown">
     <label for="selectFilter" class="text-white">Select Filter for discussions: </label>
     <select id="selectFilter" class="rounded-md shadow-md bg-amber-400 text-black" onchange="navigatePage(this)">
       <option value=""></option>
-      <option value="Date">Date</option>
-      <option value="Department">Department</option>
-      <option value="Program">Program</option>
+      <option value="Date" href="/bydate">Date</option>
+      <option value="Department" href="/department">Department</option>
+      <option value="Program" href="/program">Program</option>
     </select>
   </div>
 </div>
