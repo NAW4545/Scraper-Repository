@@ -17,7 +17,7 @@ const course_slosModel = require('./models/course_slos');
 const sequelize = new Sequelize({
   host: 'csci36db.clmdetk42d9h.us-east-1.rds.amazonaws.com',
   database: 'PLO',
-  username: 'noah',  
+  username: 'generic',  
   password: 'password',  
   port: '3306',
   dialect: 'mysql',

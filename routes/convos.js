@@ -6,7 +6,7 @@ const Models = require('../sequelize');
 
 /* GET /convos listing. */
 router.get('/', asyncHandler(async (req, res, next) => {
-  res.render('convos', {
+  res.render('convos/convos', {
     title: 'SLO Conversations',
     metaDescription: 'SLO Manager',
     menuPath: req.originalPath,
