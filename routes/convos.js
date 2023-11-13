@@ -13,5 +13,10 @@ router.get('/', asyncHandler(async (req, res, next) => {
   });
 }));
 
+/* covos/bydate */
+
+/* /covos/dept  */
+
+/* /covos/prog  */
 
 module.exports = router;
