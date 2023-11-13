@@ -4,24 +4,24 @@ SLO manager is a web application for viewing and managing Student Learning Objec
 
 ## Installation
 
-## Download and run Python 3.11
+### Download and run Python 3.11
 
 for 64-bit install download and run <a href="https://www.python.org/ftp/python/3.11.0/python-3.11.0-amd64.exe">This file</a>
 for 32-bit install <a href="https://www.python.org/ftp/python/3.11.0/python-3.11.0.exe">This file</a>
 
-## Database
+### Database
 
 You will need a database for your data<a href="https://dev.mysql.com/downloads/installer/">example</a>
 
 
-## Required Files
+### Required Files
 
 download <a href="https://github.com/NAW4545/Scraper-Repository/tree/main/scraper_and_instert_test">This file</a> 
 
 install dependencies from <a href="https://github.com/NAW4545/Scraper-Repository/blob/main/package.json">This file</a>/and<a href="https://github.com/NAW4545/Scraper-Repository/blob/main/package-lock.json">This file</a>
 
 
-## Other
+### Other
 
 visit our repository <a href="https://github.com/NAW4545/Scraper-Repository">Here</a>
 
