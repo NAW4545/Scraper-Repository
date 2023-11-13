@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('../includes/headerStuff'); -%>
+</head>
+<body>
+  <%- include('../includes/pageHeader'); -%>
+  
+  
+  <!-- Table needs formatting, but works, Departments list generated from DB -->
+<div id="main-container" class="flex flex-col bg-neutral-700 rounded-3xl shadow-md p-16 justify-center text-center m-auto text-2xl">
+  <form>
+    <h1 class="font-bold py-3 text-left text-3xl pb-10" style="font-family: 'Mate SC', serif;">Discussions By Date</h1>
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th class="">Date</th>
+          <th class="pl-8">later</th>
+          <th class="p-8">later</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+        <% data.forEach(function(item) { %>
+          <tr>
+            <td><%= item.date %></td>
+            <td class="pl-8"><%= item.value1 %></td>
+            <td class="p-8"><%= item.value2 %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </form>
+</div><!--/container -->
+  
+  
+  <%- include('../includes/pageFooter'); -%>
+  <%- include('../includes/footerStuff'); -%>
+</body>
+</html>
