@@ -10,16 +10,31 @@
   <h3 class="text-white text-3xl pb-10" style="font-family: 'Mate SC', serif;">Filter your selection</h3>
 
   <div class="dropdown">
-    <label for="selectFilter" class="text-white">Select Filter for discussions: </label>
+    <label class="text-white">Select Filter for discussions: </label>
     <select id="selectFilter" class="rounded-md shadow-md bg-amber-400 text-black" onchange="navigatePage(this)">
       <option value=""></option>
-      <option value="Date" href="/bydate">Date</option>
-      <option value="Department" href="/department">Department</option>
-      <option value="Program" href="/program">Program</option>
+      <option value="Date">Date</option>
+      <option value="Department">Department</option>
+      <option value="Program">Program</option>
     </select>
   </div>
 </div>
-  
+<script>
+  function navigatePage(selectElement) {
+    const selectedValue = selectElement.value;
+    let redirectUrl = "";
+
+    if (selectedValue === "Date") {
+        redirectUrl = "convos/bydate";
+    } else if (selectedValue === "Department") {
+        redirectUrl = "/dept";
+    } else if (selectedValue === "Program") {
+        redirectUrl = "/prog";
+    }
+
+    window.location.href = redirectUrl;
+}
+</script>
   <%- include('../includes/pageFooter'); -%>
   <%- include('../includes/footerStuff'); -%>
 </body>

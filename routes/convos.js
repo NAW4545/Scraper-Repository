@@ -13,10 +13,5 @@ router.get('/', asyncHandler(async (req, res, next) => {
   });
 }));
 
-/* convos/byDate */
-
-/* /convos/dept */
-
-/* /convos/prog */
 
 module.exports = router;
