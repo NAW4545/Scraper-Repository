@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('../includes/headerStuff'); -%>
+</head>
+<body>
+  <%- include('../includes/pageHeader'); -%>
+  
+  
+  <!-- Main Content Goes Here -->
+ <div id="main-container" class="flex flex-col justify-center my-10 mx-48 max-w-3xl min-w-[50%] text-center">
+    <h1 class="font-bold text-2xl py-3 text-left"><%= title %></h1>
+    <br>
+      <!-- Table needs formatting, but works, Departments list generated from DB -->
+    <div class="container">
+      <div class="row">
+        <% for(let course_slo of course_slos) { %>
+          <div class="tableoptions">
+          <h3><%=course_slos.course_id%> | <%=courses_slos.slo_desc%> </h3>
+          </div>
+        <% } %>
+      </div>
+    </div> <!--/container -->
+    
+   </div>
+
+  
+<%- include('../includes/pageFooter'); -%>
+<%- include('../includes/footerStuff'); -%>
+</body>
+</html>

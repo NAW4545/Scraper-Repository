@@ -4,6 +4,7 @@ var path = require('path');
 const asyncHandler = require('express-async-handler');
 const Models = require('../sequelize');
 
+
 /* GET /slos listing. */
 //Presents menu for selecting whether to view SLOs by Department or Semester
 router.get('/', asyncHandler(async (req, res, next) => {
@@ -33,18 +34,26 @@ router.get('/dept', asyncHandler(async (req, res, next) => {
   });
 }));
 
-//Presents list of SLOs associated with department chosen on /dept
-// router.get('/slos/:dept_id', asyncHandler(async (req, res, next) => {
-//   const department = await Models.departments.findOne({
-//     where: {
-//       dept_id: req.params.dept_id
-//     },
-//     raw: true,
-//     include [{
-      
-//     }]
-//   })
-// }))
+//Presents list of SLOs associated with department chosen on /slos/dept
+router.get('/slos/:dept_id', asyncHandler(async (req, res, next) => {
+  const course_slo = await Models.course_slos.findAll({
+    where: {
+      course_id: req.params.dept_id
+    },
+    raw: true,
+    // include: [{
+    //   attributes: [],
+    //   model: Models.courses,
+    // }]
+  });
+  
+  res.render('slos/deptView', {
+    title: course_slo.course_id,
+    metaDescription: 'SLO View by department',
+    menuPath: req.originalPath,
+    course_slo: course_slo
+  });
+}));
 
 
 /* /slos/semester */

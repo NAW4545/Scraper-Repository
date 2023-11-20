@@ -14,6 +14,26 @@ router.get('/', asyncHandler(async (req, res, next) => {
 }));
 
 /* /plos/dept */
+//Presents a list of Departments, which generates link to PLO list
+router.get('/dept', asyncHandler(async (req, res, next) => {
+  const departments = await Models.departments.findAll({
+    attributes: [
+      'dept_id',
+      'dept_name'
+      ],
+      raw: true,
+      
+  })
+  res.render('plos/plosDept', {
+    title: 'PLOs by Department',
+    metaDescription: 'SLO Manager',
+    menuPath: req.originalPath,
+    departments: departments,
+  });
+}));
+
+/* /plos/dept/:dept_id
+//Presents list of SLOs associated with department chosen on /slos/dept
 
 /* /plos/semester */
 
