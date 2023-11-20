@@ -13,8 +13,11 @@ router.get('/', asyncHandler(async (req, res, next) => {
   });
 }));
 
-/* convos/byDate */
+/* covos/bydate */
 
+/* /covos/dept  */
+
+/* /covos/prog  */
 /* /convos/dept */
 //Presents a list of Departments, which generates link to discussion list
 router.get('/dept', asyncHandler(async (req, res, next) => {
