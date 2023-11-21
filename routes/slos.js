@@ -4,27 +4,21 @@ var path = require('path');
 const asyncHandler = require('express-async-handler');
 const Models = require('../sequelize');
 
+/*To DO List */
+// slos/dept/:dept_id - list programs by [department]
+// slos/prog_id/ - list of courses in [program]
+// slos/:course_id - list all SLOs by [Course ID]
+
 
 /* GET /slos listing. */
-//Presents menu for selecting whether to view SLOs by Department or Semester
+//Presents lists of Departments which link to /slos/:dept_id 
 router.get('/', asyncHandler(async (req, res, next) => {
-  res.render('slos/slos', {
-    title: 'SLOs',
-    metaDescription: 'SLO Manager',
-    menuPath: req.originalPath,
-  });
-}));
-
-/* /slos/dept */
-//Presents a list of Departments, which generates link to SLO list
-router.get('/dept', asyncHandler(async (req, res, next) => {
   const departments = await Models.departments.findAll({
     attributes: [
       'dept_id',
       'dept_name'
       ],
       raw: true,
-      
   })
   res.render('slos/slosDept', {
     title: 'SLOs by Department',
@@ -34,38 +28,42 @@ router.get('/dept', asyncHandler(async (req, res, next) => {
   });
 }));
 
-//Presents list of SLOs associated with department chosen on /slos/dept
-router.get('/slos/:dept_id', asyncHandler(async (req, res, next) => {
-  const course_slo = await Models.course_slos.findAll({
+/* /slos/dept/:dept_id */
+//Presents list of Programs associated with :dept_id  --- No Working, models need update
+router.get('/dept/:dept_id', asyncHandler(async (req, res, next) => {
+  const programs = await Models.programs.findAll({
     where: {
-      course_id: req.params.dept_id
+      dept_id: req.params.dept_id
     },
     raw: true,
-    // include: [{
-    //   attributes: [],
-    //   model: Models.courses,
-    // }]
   });
   
   res.render('slos/deptView', {
-    title: course_slo.course_id,
+    title: 'Select Program to view SLOS',
     metaDescription: 'SLO View by department',
     menuPath: req.originalPath,
-    course_slo: course_slo
+    programs: programs
   });
 }));
 
+/* /slos/prog/:prog_id */
+//Presents list of courses associated with the program chosen on /slos/dept/:dept_id
 
-/* /slos/semester */
+/* /slos/course/:course_id */
+//Presents list of SLOS associated with the course chosen on /slos/prog/:prog_id
 
+
+
+//We'll probably Delete this, but it was created so we could accept 
+//changes to the database by the user 
 /* GET /slos/change */
-router.get('/change', asyncHandler(async (req, res, next) => {
-  res.render('slos/change', {
-    title: 'Submit SLO Changes',
-    metaDescription: 'SLO Manager',
-    menuPath: req.originalPath,
-  });
-}));
+// router.get('/change', asyncHandler(async (req, res, next) => {
+//   res.render('slos/change', {
+//     title: 'Submit SLO Changes',
+//     metaDescription: 'SLO Manager',
+//     menuPath: req.originalPath,
+//   });
+// }));
 
 
 module.exports = router;

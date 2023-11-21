@@ -11,12 +11,12 @@
   <div id="main-container" class="flex justify-center p-8 text-center bg-neutral-700 rounded-3xl m-auto shadow-md mt-20 ml-24 mr-24">
       <div class="max-w-3xl mx-auto px-8 sm:px-0">
           <div class="">
-              <h1 class="text-3xl pb-10 text-neutral-50" style="font-family: 'Mate SC', serif;">SLOs</h1>
+              <h1 class="text-3xl pb-10 text-neutral-50" style="font-family: 'Mate SC', serif;">Choose Department:</h1>
           </div>
             <div id="row" class="text-slate-50">
                 <% for(let department of departments) { %>
                 <div class="tableoptions">
-                    <a href="slos/<%=department.dept_id%>"><%=department.dept_name.substring(0, 100)%></a>
+                    <a href="dept/<%=department.dept_id%>"><%=department.dept_name%></a>
                 </div>
                 <% } %>
             </div>

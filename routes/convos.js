@@ -4,6 +4,15 @@ var path = require('path');
 const asyncHandler = require('express-async-handler');
 const Models = require('../sequelize');
 
+/*To Dos */
+// convos/byDate - List all PLO Duiscussions by Date - Most recent (top) to oldest (bottom)
+// convos/dept - List Departments
+// convos/dept/:dept_id - list all discussions associated with [department]
+// convos/prog - List Departments
+// convos/prog/:dept_id - List all Programs in [department]
+// convos/prog/:prog_id - List all discussions associated with that program
+
+
 /* GET /convos listing. */
 router.get('/', asyncHandler(async (req, res, next) => {
   res.render('convos/convos', {
