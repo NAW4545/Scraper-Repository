@@ -30,7 +30,8 @@ const sequelize = new Sequelize({
   },
   // To remove deprecated warning
 //   operatorsAliases: false,
-  logging: false
+  logging: console.log,
+  define: { timestamps: false }
 });
 
 //Generate and associate table objects 
