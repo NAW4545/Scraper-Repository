@@ -48,10 +48,10 @@ programs.associate(departments);
 plos.associate(programs);
 plo_changes.associate(plos);
 course_slos.associate(courses);
-programs.belongsToMany(courses, {through: 'prog_courses'});
-courses.belongsToMany(programs, {through: 'prog_courses'});
-plos.belongsToMany(discussions, {through: 'plo_discussions'});
-discussions.belongsToMany(plos, {through: 'plo_discussions'});
+programs.belongsToMany(courses, {through: 'prog_courses', foreignKey: 'prog_id'});
+courses.belongsToMany(programs, {through: 'prog_courses', foreignKey: 'course_id'});
+plos.belongsToMany(discussions, {through: 'plo_discussions', foreignKey: 'plo_id'});
+discussions.belongsToMany(plos, {through: 'plo_discussions', foreignKey: 'disc_id'});
 
 
 sequelize.sync()
