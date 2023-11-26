@@ -65,4 +65,28 @@ router.get('/prog', asyncHandler(async (req, res, next) => {
   });
 }));
 
+// produces list of PLOs based on previously selected program
+router.get('/programs/:prog_id', asyncHandler(async (req, res, next) => {
+  const discussions = await Models.discussions.findAll({
+    include: [{
+      model: Models.plos,
+      where: {
+        prog_id: req.params.prog_id,
+      }
+    }],
+    attributes: [
+      'disc_id',
+      'disc_date',
+      'disc_desc'
+    ],
+   // raw: true, -----removing raw eliminates dup results in this case
+
+  });
+  res.render('convos/programs', {
+    title: 'Disuccions by Program',
+    metaDescription: 'Discussion Viewer',
+    discussions: discussions,
+  });
+}));
+
 module.exports = router;
