@@ -65,7 +65,7 @@ router.get('/prog', asyncHandler(async (req, res, next) => {
   });
 }));
 
-// produces list of PLOs based on previously selected program
+// produces list of discussionss based on previously selected program
 router.get('/programs/:prog_id', asyncHandler(async (req, res, next) => {
   const discussions = await Models.discussions.findAll({
     include: [{
