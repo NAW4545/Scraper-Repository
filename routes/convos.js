@@ -31,6 +31,7 @@ router.get('/date', asyncHandler(async (req, res, next) => {
       'disc_desc'
     ],
     raw: true,
+    order: [ ['disc_date', 'DESC'] ]
   });
   res.render('convos/convosDate', {
     title: 'Disuccions by Program',
