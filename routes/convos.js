@@ -40,8 +40,20 @@ router.get('/date', asyncHandler(async (req, res, next) => {
 }));
 
 router.get('/dates/:disc_date', asyncHandler(async (req, res, next) => {
+  const dDate = await Models.discussions.findOne({
+    where: {disc_date: req.params.disc_date},
+    as: 'dDate',
+    attributes: [
+      'disc_id',
+      'disc_date',
+      'disc_desc'
+    ],
+    raw: true,
+  });
+
   const discussions = await Models.discussions.findAll({
     where: {disc_date: req.params.disc_date},
+    as: 'discussions',
     attributes: [
       'disc_id',
       'disc_date',
@@ -53,6 +65,7 @@ router.get('/dates/:disc_date', asyncHandler(async (req, res, next) => {
     title: 'Disuccions by Program',
     metaDescription: 'Discussion Viewer',
     discussions: discussions,
+    dDate: dDate,
   });
 }));
 
