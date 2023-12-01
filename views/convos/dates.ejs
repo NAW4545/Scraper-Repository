@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('../includes/headerStuff'); -%>
+</head>
+<body>
+  <%- include('../includes/pageHeader'); -%>
+  
+  
+  <!-- Table needs formatting, but works, Departments list generated from DB -->
+  <div id="main-container" class="flex justify-center p-8 text-center bg-neutral-700 rounded-3xl m-auto shadow-md mt-20 ml-24 mr-24">
+      <div class="max-w-3xl mx-auto px-8 sm:px-0">
+          <div class="">
+              <h1 class="text-3xl pb-10 text-neutral-50" style="font-family: 'Mate SC', serif;">PLO Discussions from <%=dDate.disc_date%></h1>
+          </div>
+            <div id="row" class="text-slate-50">
+
+                <% for(let d of discussions) { %>
+ <div class="tableoptions m-4 text-2xl transition-all hover:scale-125">
+                    <p class="transition-all hover:text-amber-400 "><%=d.disc_desc%></p>
+
+                <% } %>
+                    
+            </div>
+      </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  
+  <%- include('../includes/pageFooter'); -%>
+  <%- include('../includes/footerStuff'); -%>
+</body>
+</html>
