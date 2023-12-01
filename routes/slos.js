@@ -6,7 +6,7 @@ const Models = require('../sequelize');
 
 /*To DO List */
 // slos/dept/:dept_id - list programs by [department]
-// slos/prog_id/ - list of courses in [program]
+// slos/:prog_id/ - list of courses in [program]
 // slos/:course_id - list all SLOs by [Course ID]
 
 
@@ -35,6 +35,11 @@ router.get('/dept/:dept_id', asyncHandler(async (req, res, next) => {
     where: {
       dept_id: req.params.dept_id
     },
+    attributes: [
+      'dept_id',
+      'prog_id',
+      'prog_name'
+      ],
     raw: true,
   });
   
@@ -42,16 +47,46 @@ router.get('/dept/:dept_id', asyncHandler(async (req, res, next) => {
     title: 'Select Program to view SLOS',
     metaDescription: 'SLO View by department',
     menuPath: req.originalPath,
-    programs: programs
+    programs: programs,
   });
 }));
 
-/* /slos/prog/:prog_id */
-//Presents list of courses associated with the program chosen on /slos/dept/:dept_id
-
-/* /slos/course/:course_id */
-//Presents list of SLOS associated with the course chosen on /slos/prog/:prog_id
-
+// lists courses associated with chosen program,
+// lists course slos under each listed course
+router.get('/dept/prog/:prog_id', asyncHandler(async (req, res, next) => {
+  const courses = await Models.courses.findAll({
+    include: [{
+      model: Models.programs,
+      as: 'programs',
+      required: true,
+      where: {prog_id: req.params.prog_id}
+    }],
+    attributes: [
+      'course_id',
+      'course_name'
+      ],
+    raw: true,
+  });
+  const course_slos = await Models.course_slos.findAll({
+    include: [{
+      model: Models.courses,
+      as: 'courses',
+    }],
+    attributes: [
+      'course_id',
+      'slo_id',
+      'slo_desc'
+      ],
+    raw: true,
+  });
+  res.render('slos/progView', {
+    title: 'Select Program to view SLOS',
+    metaDescription: 'SLO View by department',
+    menuPath: req.originalPath,
+    course_slos: course_slos,
+    courses: courses,
+  });
+}));
 
 
 //We'll probably Delete this, but it was created so we could accept 
