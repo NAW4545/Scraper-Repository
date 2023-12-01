@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('../includes/headerStuff'); -%>
+</head>
+<body>
+  <%- include('../includes/pageHeader'); -%>
+  
+<div id="main-container" class="flex flex-col ml-24 mr-24 mt-20 py-12 bg-neutral-700 rounded-3xl shadow-md p-8 justify-center text-center m-auto text-2xl">
+  <h3 class="text-white text-3xl pb-10" style="font-family: 'Mate SC', serif;">PLOs By Semester</h3>
+
+  <div class="dropdown">
+    <label class="text-white"> </label>
+    <select id="selectFilter" class="rounded-md shadow-md bg-amber-400 text-black" onchange="navigatePage(this)">
+      <option value=""></option>
+      <option value="2023 Spring">2023 Spring</option>
+      <option value="2023 Summer">2023 Summer</option>
+      <option value="2023 Fall">2023 Fall</option>
+      <option value="2023 Winter">2023 Winter</option>
+      <option value="2024 Spring">2024 Spring</option>
+      <option value="2024 Summer">2024 Summer</option>
+      <option value="2024 Fall">2024 Fall</option>
+      <option value="2024 Winter">2024 Winter</option>
+      <option value="2025 Spring">2025 Spring</option>
+      <option value="2025 Summer">2025 Summer</option>
+      <option value="2025 Fall">2025 Fall</option>
+      <option value="2025 Winter">2025 Winter</option>
+      <option value="2026 Spring">2026 Spring</option>
+      <option value="2026 Summer">2026 Summer</option>
+      <option value="2026 Fall">2026 Fall</option>
+      <option value="2026 Winter">2026 Winter</option>
+    </select>
+  </div>
+</div>
+<script>
+
+  function navigatePage(selectElement) {
+    const selectedValue = selectElement.value;
+    let redirectUrl = "";
+
+    if (selectedValue === "2023 Spring") {
+        redirectUrl = "evals/semester/2023spring";
+    } else if (selectedValue === "2023 Summer") {
+        redirectUrl = "evals/semester/2023summer";
+    } else if (selectedValue === "2023 Fall") {
+        redirectUrl = "evals/semester/2023fall";
+    } else if (selectedValue === "2023 Winter") {
+        redirectUrl = "evals/semester/2023winter";
+    } else if (selectedValue === "2024 Spring") {
+        redirectUrl = "evals/semester/2024spring";
+    } else if (selectedValue === "2024 Summer") {
+        redirectUrl = "evals/semester/2024summer";
+    } else if (selectedValue === "2024 Fall") {
+        redirectUrl = "evals/semester/2024fall";
+    } else if (selectedValue === "2024 Winter") {
+        redirectUrl = "evals/semester/2024winter";
+    } else if (selectedValue === "2025 Spring") {
+        redirectUrl = "evals/semester/2025spring";
+    } else if (selectedValue === "2025 Summer") {
+        redirectUrl = "evals/semester/2025summer";
+    } else if (selectedValue === "2025 Fall") {
+        redirectUrl = "evals/semester/2025fall";
+    } else if (selectedValue === "2025 Winter") {
+        redirectUrl = "evals/semester/2025winter";
+    } else if (selectedValue === "2026 Spring") {
+        redirectUrl = "evals/semester/2026spring";
+    } else if (selectedValue === "2026 Summer") {
+        redirectUrl = "evals/semester/2026summer";
+    } else if (selectedValue === "2026 Fall") {
+        redirectUrl = "evals/semester/2026fall";
+    } else if (selectedValue === "2026 Winter") {
+        redirectUrl = "evals/semester/2026winter";
+    } 
+
+    window.location.href = redirectUrl;
+}
+  </script> 
+  
+  
+  <%- include('../includes/pageFooter'); -%>
+  <%- include('../includes/footerStuff'); -%>
+</body>
+</html>

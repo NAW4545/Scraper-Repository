@@ -11,13 +11,24 @@
    <div id="main-container" class="flex justify-center p-8 text-center bg-neutral-700 rounded-3xl m-auto shadow-md mt-20 ml-24 mr-24">
       <div class="max-w-3xl mx-auto px-8 sm:px-0">
           <div class="">
-              <h1 class="text-3xl pb-10 text-neutral-50" style="font-family: 'Mate SC', serif;">Choose Program:</h1>
+              <h1 class="text-3xl pb-10 text-neutral-50" style="font-family: 'Mate SC', serif;">Courses:</h1>
           </div>
             <div id="row" class="text-slate-50">
-                <% for(let program of programs) { %>
-                <div class="tableoptions">
-                    <a href="prog/<%=program.prog_id%>"><%=program.prog_name%></a>
-                </div>
+                <% for(let course of courses) { %>
+                
+                <p><b><%=course.course_name%></b></p>
+                
+                    <% for(let slo of course_slos) { %>
+                    
+                        <% if(slo.course_id == course.course_id) { %>
+                        
+                            <%=slo.slo_desc%>
+                            <br>
+
+                        <% } %>
+                        
+                    <% } %>
+                    <br>
                 <% } %>
             </div>
       </div>
