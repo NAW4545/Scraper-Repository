@@ -83,5 +83,3 @@ router.get('/semester/:semester', asyncHandler(async (req, res, next) => {
 
 
 module.exports = router;
-
-

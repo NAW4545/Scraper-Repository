@@ -13,24 +13,40 @@
           <div class="">
               <h1 class="text-3xl pb-10 text-neutral-50" style="font-family: 'Mate SC', serif;">Courses:</h1>
           </div>
-            <div id="row" class="text-slate-50">
+          
+            <!-- Genrated tables for each course -->
+            <div id="output" class="text-slate-50">
                 <% for(let course of courses) { %>
+                <div id="table">
                 
-                <p><b><%=course.course_name%></b></p>
-                
-                    <% for(let slo of course_slos) { %>
-                    
-                        <% if(slo.course_id == course.course_id) { %>
-                        
-                            <%=slo.slo_desc%>
-                            <br>
-
-                        <% } %>
-                        
-                    <% } %>
+                    <table class="table-auto border-collapse border border-neutral-500 rounded-3xl">
+                        <thead>
+                            <tr>
+                                <th class"border-2 border-neutral-500 p-2 text-center">
+                                    <h2 class="p-2 text-neutral-50 bg-neutral-600"><%=course.course_name%></h3>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let slo of course_slos) { %>
+                            <% if(slo.course_id == course.course_id) { %>
+                                <tr>
+                                    <td class="border border-neutral-500 p-3 text-left text-neutral-950 bg-neutral-200">
+                                        <p><span>&#9900;</span>   <%=slo.slo_desc%></p>
+                                        <% } %>
+                                    </td>
+                                </tr>
+                            <% } %>
+                            
+                        </tbody>
+                    </table>
                     <br>
+                    <br>
+                </div>
                 <% } %>
             </div>
+            
+            
       </div>
   </div>
   <br>

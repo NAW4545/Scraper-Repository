@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('../includes/headerStuff'); -%>
+</head>
+<body>
+  <%- include('../includes/pageHeader'); -%>
+  
+  
+  <!-- Table needs formatting, but works, Departments list generated from DB -->
+<div id="main-container" class="flex flex-col bg-neutral-700 rounded-3xl shadow-md p-16 justify-center text-center m-auto text-2xl">
+  <h3 class="text-white text-3xl pb-10" style="font-family: 'Mate SC', serif;">Filter your selection</h3>
+
+  <div class="dropdown">
+    <label for="selectProgram" class="text-white">Select Filter by Program: </label>
+    <select id="selectProgram" class="rounded-md shadow-md bg-amber-400 text-black" onchange="navigatePage(this)">
+      <option value=""><a href="#"></a></option>
+      <option value="value1"><a href="#">Option 1</a></option>
+      <option value="value2"><a href="#">Option 2</a></option>
+      <option value="value3"><a href="#">Option 3</a></option>
+    </select>
+  </div>
+</div>
+
+  </div><!--/container -->
+  
+  
+  <!--When the screen was resized, the footer would cover the lbottom of the content
+this fixes that -->
+<br>
+  <br>
+  <br>
+  <br>
+  
+  
+  <%- include('../includes/pageFooter'); -%>
+  <%- include('../includes/footerStuff'); -%>
+</body>
+</html>

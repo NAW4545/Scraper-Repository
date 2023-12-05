@@ -52,18 +52,18 @@ As this is a collaborative project for college credits, we cannot accept outside
 - Store when each PLO needs to be evaluated (based on previous evaluation, a department submitted plan, and the 6 year timeline)
 ![Static Badge](https://img.shields.io/badge/Complete-green)
 - Output a list of PLOs that need to be evaluated each semester total, by department.
-![Static Badge](https://img.shields.io/badge/In--Progress-red)
+![Static Badge](https://img.shields.io/badge/Complete-green)
 - Track a changed PLO 
 ![Static Badge](https://img.shields.io/badge/Complete-green)
 - Mark PLO evaluated based on the discussion from above
 ![Static Badge](https://img.shields.io/badge/In--Progress-red)
 - Output all discussions of a PLO based on all, date, department, program
-![Static Badge](https://img.shields.io/badge/In--Progress-red)
+![Static Badge](https://img.shields.io/badge/Complete-green)
 - Track SLO's for each course
 ![Static Badge](https://img.shields.io/badge/Complete-green)
 - Track faculty submissions for SLOs
 ![Static Badge](https://img.shields.io/badge/In--Progress-red)
 - Create a use-able website for all of this
-![Static Badge](https://img.shields.io/badge/In--Progress-red)
+![Static Badge](https://img.shields.io/badge/Complete-green)
 - Create an accessible website
-![Static Badge](https://img.shields.io/badge/In--Progress-red)
+![Static Badge](https://img.shields.io/badge/Complete-green)
