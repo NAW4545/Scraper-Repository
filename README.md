@@ -13,6 +13,25 @@ for 32-bit install <a href="https://www.python.org/ftp/python/3.11.0/python-3.11
 
 You will need a database for your data<a href="https://dev.mysql.com/downloads/installer/">example</a>
 
+<a href="https://github.com/NAW4545/Scraper-Repository/blob/main/sequelize.js"> Adjust these 
+Here is part of sequelize.js
+const sequelize = new Sequelize({
+  host: 'csci36db.clmdetk42d9h.us-east-1.rds.amazonaws.com', this
+  database: 'PLO',
+  username: 'generic',  
+  password: 'password',  
+  port: '3306',
+  dialect: 'mysql',
+  to your databases requirements</a>
+
+<a href="https://github.com/NAW4545/Scraper-Repository/blob/main/Scraper.zip">Adjust these 
+[mysql]
+host = localhost
+port = 3306
+database = test
+user = Admin
+password = password
+to your databases requirements</a>
 
 ### Required Files
 
