@@ -58,7 +58,7 @@ Expected Output
 SLO Manager should scrape SLO and PLO data from the Butte College Website and store it in the MySQL database with metadata for name, department, program, and semester. Should store discussions in the database with metadata for data, departments, and programs discussed. SLO Manager should show which PLOs must be evaluated each semester, grouped by department. 
 
 Test Plans
-After completion of the installation guide above, all the <a href="https://github.com/NAW4545/Scraper-Repository/documentation/test-plans">test plans</a> in the <a href="https://github.com/NAW4545/Scraper-Repository/documentation">documentation</a> folder should pass.
+After completion of the installation guide above, all the <a href="https://github.com/NAW4545/Scraper-Repository/blob/main/documentation/test-plans">test plans</a> in the <a href="https://github.com/NAW4545/Scraper-Repository/blob/main/documentation">documentation</a> folder should pass.
 
 
 ## Authors and acknowledgment
